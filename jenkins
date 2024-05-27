@@ -1,0 +1,13 @@
+stages {
+        stage('clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/CHALLA-ANUSHA/terraform12.git'
+            }
+        }
+        stage('init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+}
+}
