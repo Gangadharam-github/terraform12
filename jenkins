@@ -9,5 +9,5 @@ stages {
                 sh 'terraform init'
             }
         }
-}
+     }
 }
