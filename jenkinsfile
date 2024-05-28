@@ -1,4 +1,6 @@
-stages {
+pipeline{
+  agent any
+   stages {
         stage('clone') {
             steps {
                 git branch: 'main', url: 'https://github.com/CHALLA-ANUSHA/terraform12.git'
@@ -9,4 +11,10 @@ stages {
                 sh 'terraform init'
             }
         }
+        stage('plan') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
      }
+}
