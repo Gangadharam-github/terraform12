@@ -3,7 +3,7 @@ pipeline{
    stages {
         stage('clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/CHALLA-ANUSHA/terraform12.git'
+                git branch: 'main', url: 'https://github.com/Gangadharam-github/terraform12.git'
             }
         }
         stage('init') {
