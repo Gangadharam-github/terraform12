@@ -1,20 +1,30 @@
-pipeline{
-  agent any
-   stages {
-        stage('clone') {
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Gangadharam-github/terraform12.git'
+                checkout scm
             }
         }
-        stage('init') {
+    
+        stage ("terraform init") {
             steps {
-                sh 'terraform init'
+                sh ("terraform init -reconfigure") 
             }
         }
-        stage('plan') {
+        
+        stage ("plan") {
             steps {
-                sh 'terraform plan'
+                sh ('terraform plan') 
             }
         }
-     }
+
+        stage (" Action") {
+            steps {
+                echo "Terraform action is --> ${action}"
+                sh ('terraform ${action} --auto-approve') 
+           }
+        }
+    }
 }
